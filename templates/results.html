@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Drug Evaluation Results</title>
+</head>
+<body>
+    <h1>Evaluation Results</h1>
+    <p><strong>Classification:</strong> {{ results['Classification'] }}</p>
+
+    <h2>Similarity Metrics</h2>
+    {% if 'Tanimoto Similarity' in results %}
+        <p><strong>Tanimoto Similarity:</strong> {{ results['Tanimoto Similarity'] }}</p>
+        <p><strong>Morgan Tanimoto Similarity:</strong> {{ results['Morgan Tanimoto Similarity'] }}</p>
+        <p><strong>String Similarity:</strong> {{ results['String Similarity'] }}</p>
+    {% endif %}
+
+    <h2>Lipinski Rule</h2>
+    <ul>
+        {% for key, value in results['Lipinski'].items() %}
+            <li><strong>{{ key }}:</strong> {{ value }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>ADMET Simulation</h2>
+    <ul>
+        {% for key, value in results['ADMET'].items() %}
+            <li><strong>{{ key }}:</strong> {{ value }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="/">Back to Home</a>
+</body>
+</html>
