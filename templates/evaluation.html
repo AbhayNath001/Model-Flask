@@ -8,7 +8,7 @@
 <body>
   <div class="evaluation-container">
     <form class="evaluation-form" id="evalForm">
-      <label for="smiles"> <h2> Enter SMILES: </h2> </label>
+      <label for="smiles"><h2>Enter SMILES:</h2></label>
       <input type="text" id="smiles" name="smiles" required placeholder="e.g., CC(=O)OC1=CC=CC=C1C(=O)O">
       <button type="submit">Predict</button>
     </form>
@@ -48,10 +48,11 @@
         html += '<h3><u>Similarity Scores</u></h3>';
         html += `<p><strong>Tanimoto Similarity:</strong> ${data["Tanimoto Similarity"]}</p>`;
         html += `<p><strong>String Similarity:</strong> ${data["String Similarity"]}</p>`;
-      //  html += `<p><strong>Morgan Tanimoto Similarity:</strong> ${data["Morgan Tanimoto Similarity"]}</p>`;
+        // Uncomment if you want to show Morgan Tanimoto Similarity:
+        // html += `<p><strong>Morgan Tanimoto Similarity:</strong> ${data["Morgan Tanimoto Similarity"]}</p>`;
         html += '</div>';
         
-        // Column 2: Lipinski's Rule of Five
+        // Column 2: Lipinski's Rule of 5
         html += '<div class="result-col">';
         html += '<h3><u>Lipinski\'s Rule of 5</u></h3><ul>';
         for (let key in data.Lipinski) {
