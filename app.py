@@ -1,11 +1,14 @@
+import os
 from flask import Flask, render_template, request, jsonify
 import pandas as pd
 from rdkit import Chem
 from rdkit.Chem import Descriptors, AllChem, Lipinski, DataStructs, Crippen
 from difflib import SequenceMatcher
 
-# Load dataset (adjust file path and column name as needed)
-df = pd.read_excel("Final Dataset.xlsx", usecols=[1])
+# Set base directory and load dataset using an absolute path
+basedir = os.path.abspath(os.path.dirname(__file__))
+df_path = os.path.join(basedir, "Final Dataset.xlsx")
+df = pd.read_excel(df_path, usecols=[1])
 
 app = Flask(__name__)
 
@@ -78,13 +81,17 @@ def evaluate():
     max_tanimoto = 0.0
     best_match = None
 
-    # Find the best match (i.e., maximum Tanimoto similarity) from the dataset
+    # Find the best match (maximum Tanimoto similarity) from the dataset
     for index, row in df.iterrows():
         smiles = row['SMILES']
         current_tanimoto = calculate_similarity(input_smiles, smiles)
         if current_tanimoto > max_tanimoto:
             max_tanimoto = current_tanimoto
             best_match = smiles
+
+    # If no best match found, use the input SMILES
+    if best_match is None:
+        best_match = input_smiles
 
     # Determine classification based on max_tanimoto thresholds
     if max_tanimoto >= 0.58:
