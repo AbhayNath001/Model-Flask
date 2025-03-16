@@ -7,7 +7,7 @@
 
 /* Body with Dark Background and Centered Content */
 html, body {
-  height: 90%;
+  height: auto;
   width: 100%;
   background-color: #111; /* Dark background */
   color: #fff;
@@ -19,8 +19,8 @@ html, body {
 
 /* Main Container */
 .evaluation-container {
-  width: 80%;
-  max-width: 800px;
+  width: 100%;
+  max-width: 100%;
   background-color: #222;  /* Panel background */
   border-radius: 1rem;
   padding: 2rem;
@@ -49,7 +49,7 @@ html, body {
   padding: 0.75rem;
   font-size: 1rem;
   border: 2px solid #ff0000;
-  border-radius: 5px;
+  border-radius: 8px;
   margin-bottom: 1rem;
   background-color: #111;
   color: #fff;
@@ -78,7 +78,7 @@ html, body {
   border: 5px solid #ff0000;
   border-top: 5px solid #fff;
   border-radius: 50%;
-  animation: spin 1s linear infinite;
+  animation: spin 0.5s linear infinite;
 }
 @keyframes spin {
   from { transform: rotate(0deg); }
@@ -118,4 +118,16 @@ strong {
 .result-col {
   flex: 1;
   padding: 1rem;
+}
+
+.result-col p {
+  margin-bottom: 0.5rem;
+}
+
+.result-col li {
+  margin-bottom: 0.5rem;
+}
+
+.tab {
+  margin-top: 0.5rem;
 }

@@ -40,7 +40,7 @@
         loadingSpinner.style.display = 'none';
         let html = '<h2>Evaluation Results</h2>';
         html += `<p><strong>SMILES:</strong> ${data["Input SMILES"]}</p>`;
-        html += `<p><strong>Classification:</strong> ${data.Classification}</p>`;
+        html += `<div class="tab"><p><strong>Classification:</strong> ${data.Classification}</p> </div>`;
         html += '<div class="results-grid">';
         
         // Column 1: Similarity Scores

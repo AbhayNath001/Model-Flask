@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Drug Evaluation Results</title>
+    <title>Anti-Cancer Drug Model</title>
 </head>
 <body>
     <h1>Evaluation Results</h1>
+    <p><strong>SMILE:</strong> {{ results['SMILE'] }}</p>
     <p><strong>Classification:</strong> {{ results['Classification'] }}</p>
 
-    <h2>Similarity Metrics</h2>
+    <h2>Similarity Scores</h2>
     {% if 'Tanimoto Similarity' in results %}
         <p><strong>Tanimoto Similarity:</strong> {{ results['Tanimoto Similarity'] }}</p>
-        <p><strong>Morgan Tanimoto Similarity:</strong> {{ results['Morgan Tanimoto Similarity'] }}</p>
         <p><strong>String Similarity:</strong> {{ results['String Similarity'] }}</p>
     {% endif %}
 
-    <h2>Lipinski Rule</h2>
+    <h2>Lipinski's Rule of Five</h2>
     <ul>
         {% for key, value in results['Lipinski'].items() %}
             <li><strong>{{ key }}:</strong> {{ value }}</li>
         {% endfor %}
     </ul>
 
-    <h2>ADMET Simulation</h2>
+    <h2>ADMET Properties</h2>
     <ul>
         {% for key, value in results['ADMET'].items() %}
             <li><strong>{{ key }}:</strong> {{ value }}</li>
